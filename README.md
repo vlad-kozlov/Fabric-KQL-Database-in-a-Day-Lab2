@@ -8,30 +8,30 @@ This Lab is organised into the following 4 challenges:
 | [Challenge 7](#challenge-7-going-more-advanced-with-kql)| Advanced KQL operators| 45 Min|
 | [Challenge 8](#challenge-8-task-1--find-the-anomaly-value-)| Visualization| 45 Min |
 
-- [Go to ADX-In-A-Day Homepage](https://github.com/Azure/ADX-in-a-Day)
+- [Go to KQL-Database-In-A-Day Homepage](https://github.com/Azure/KQL-Database-in-a-Day)
 
 ## **Earn a digital badge!**
 
-In order to receive the "ADX-In-A-Day" digital badge, you will need to complete the tasks marked with ✅ in [Lab 1](https://github.com/Azure/ADX-in-a-Day-Lab1) & Lab 2. Submit your answers for [Lab 1](https://forms.office.com/r/qZ0yghDwyb) and Lab 2 quizzes in order to receive the "ADX in a Day" digital badge. You may edit your answers after or try again.
+In order to receive the "KQL-Database-In-A-Day" digital badge, you will need to complete the tasks marked with ✅ in [Lab 1](https://github.com/Azure/KQL-in-a-Day-Lab1) & Lab 2. Submit your answers for [Lab 1](https://forms.office.com/r/qZ0yghDwyb) and Lab 2 quizzes in order to receive the "ADX in a Day" digital badge. You may edit your answers after or try again.
 
 | :information_source: **Note**    |
 |:---------------------------|
-|**For Lab 2, please submit the results for the tasks marked with ✅ in the following link**: [Quiz ADX in a Day Lab 2](https://forms.office.com/r/8z4DQ04eXH) |
+|**For Lab 2, please submit the results for the tasks marked with ✅ in the following link**: [Quiz KQL Database in a Day Lab 2](https://forms.office.com/r/8z4DQ04eXH) |
 
 | :information_source: **Note**    |
 |:---------------------------|
 | **Please allow us 5 working days to issue the badge**|
 
-![ADX in a day](/assets/images/badge.png "ADX in a day")
+![KQL Database in a day](/assets/images/KQLDatabaseBadge.png "KQL Database in a day")
 
 ## Challenge 5: How long will my data be kept? - Caching and Retention Policies
 
-Among the different policies you can set to the ADX cluster, two policies are of particular importance:
+Among the different policies you can set to the KQL Database, two policies are of particular importance:
 
 - Retention policy (retention period)
 - Cache policy (cache period)
 
-First, a policy is used to enforce and control the properties of the cluster (or the database/table).
+First, a policy is used to enforce and control the properties of the KQL Database.
   
 - The **retention** policy: the time span, in days, for which it’s guaranteed that the data is kept available for querying. The time span is measured from the time that the records are ingested. When the period expires, the records  will not be available for querying any more.
 
@@ -50,9 +50,13 @@ First, a policy is used to enforce and control the properties of the cluster (or
 ### Challenge 5, Task 1: Change the retention policy via commands ✅
 
 Database policies can be overridden per table using a KQL control command.
-ADX cluster and database are Azure resources. A database is a sub-resource of the cluster, so it can be edited from the portal. Tables are not considered an Azure resource, so they cannot be managed in the portal but via a KQL command.
+A database cache and retention policies can be edited from the Fabric UI. Tables policies can be managed via a KQL command.
 
-You can always use KQL commands to alter the policies of the entire Cluster/Database/tables. Table level policy takes precedence over database level which takes precedence over cluster level.
+**References:**
+
+- [`.alter KQL Database retention policy` via UI](https://learn.microsoft.com/en-us/fabric/real-time-analytics/data-retention-policy)
+
+You can always use KQL commands to alter the policies of the entire Database/tables. Table level policy takes precedence over database level which takes precedence over cluster level.
 
 ````kql
 .alter table ingestionLogs policy retention 
